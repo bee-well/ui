@@ -6,6 +6,10 @@ it("renders without crashing", () => {
 })
 
 // TODO: implement test for children rendering
+it("renders the child text", () => {
+    const wrapper = shallow(<CtaButton>Test</CtaButton>)
+    expect(wrapper.text()).toEqual("Test")
+})
 
 it("maps onClick to the buttons click handler", () => {
     const fn = jest.fn()
