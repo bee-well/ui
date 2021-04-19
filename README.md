@@ -5,7 +5,6 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
 * Buttons
   * Button
   * CtaButton
-  * DiscreteButton
 * Heading
   * PrimaryHeading
   * SecondaryHeading
