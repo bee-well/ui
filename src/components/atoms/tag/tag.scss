@@ -1,0 +1,16 @@
+@import "../../../sass/colors.scss";
+@import "../../../sass/spaces.scss";
+@import "../../../sass/typography.scss";
+
+.tag {
+    position: relative;
+    background: $color-light;
+    color: $color-text-dark;
+    padding: $space-medium $space-large;
+    display: inline-block;
+    border-radius: .8rem;
+    font-family: $font-family-secondary;
+    cursor: pointer;
+    transition: all .2s linear;
+    user-select: none;
+}
