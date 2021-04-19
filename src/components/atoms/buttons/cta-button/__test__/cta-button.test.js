@@ -5,7 +5,6 @@ it("renders without crashing", () => {
     shallow(<CtaButton />)
 })
 
-// TODO: implement test for children rendering
 it("renders the child text", () => {
     const wrapper = shallow(<CtaButton>Test</CtaButton>)
     expect(wrapper.text()).toEqual("Test")
