@@ -1,8 +1,9 @@
 import { shallow } from 'enzyme'
 import Button from '../index'
 
-it("renders without crashing", () => {
-    shallow(<Button />)
+it("renders the child text", () => {
+    const wrapper = shallow(<Button>Test</Button>)
+    expect(wrapper.text()).toEqual("Test")
 })
 
 it("maps onClick to the buttons click handler", () => {
@@ -11,3 +12,4 @@ it("maps onClick to the buttons click handler", () => {
     r.find('button').simulate('click')
     expect(fn.mock.calls.length).toEqual(1)
 })
+
