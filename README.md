@@ -2,11 +2,13 @@
 Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att kommunicera med alla backend-tjänster på molnet med hjälp utav `axios`. Programmet är uppbyggt med hjälp utan atomisk design, de komponenter som kommer att utvecklas specificeras här samt i `bee-well/docs` repot. Förstasidan innehåller inte mycket logik eller kommunikation utan är mer en sida där användare kan logga in eller registrera sig. Resterande sidor är uppbyggda med kort som är modulära i design och funktion så att applikationen enkelt kan anpassas och ändras. 
 ## Komponenter
 ### Atomer
-* Button
-* CtaButton
-* DiscreteButton
-* PrimaryHeading
-* SecondaryHeading
+* Buttons
+  * Button
+  * CtaButton
+  * DiscreteButton
+* Heading
+  * PrimaryHeading
+  * SecondaryHeading
 * Tag
 * Textfield
 * DatePicker
@@ -17,17 +19,19 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
 * Chart
 * Modal
 ### Organismer
-* ReportMoodModal
-* SignUpModal
-* SignInModal
-* ProfileCard
-* WelcomeCard
-* OverviewCard
-* ReportCard
-* FilterCard
-* DayCard
-* HourCard
-* ReportAmountCard
+* Modals
+  * ReportMoodModal
+  * SignUpModal
+  * SignInModal
+* Cards
+  * ProfileCard
+  * WelcomeCard
+  * OverviewCard
+  * ReportCard
+  * FilterCard
+  * DayCard
+  * HourCard
+  * ReportAmountCard
 ### Pages
 * Start
 * Panel
