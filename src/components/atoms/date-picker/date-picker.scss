@@ -1,0 +1,13 @@
+@import "../../../../sass/spaces.scss";
+@import "../../../../sass/colors.scss";
+
+.container {
+    padding: $space-medium $space-x-large;
+    border-radius: $space-medium;
+    border: none;
+    outline: none;
+    background: $color-primary;
+    color: $color-light;
+    font-weight: bold;
+    outline: none;
+}
