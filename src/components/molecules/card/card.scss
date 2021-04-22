@@ -1,0 +1,9 @@
+@import "../../../sass/colors.scss";
+@import "../../../sass/spaces.scss";
+
+.card {
+    display: inline-block;
+    border-radius: 1.6rem;
+    padding: $space-xx-large;
+    box-shadow: .8rem .8rem 1.6rem rgba($color-dark, .05);
+}
