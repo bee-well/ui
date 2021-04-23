@@ -18,13 +18,6 @@ const SignUpModal = ({ open, onClose, onSignUp }) => {
     const [prompt, setPrompt] = useState('')
 
     const onSubmit = () => {
-        onSignUp(
-            firstName.trim(),
-            lastName.trim(),
-            email.trim(),
-            password.trim(),
-        )
-        
         if (firstName.trim() === "" || lastName.trim() === "") {
             setPrompt("Please enter valid names")
             return
