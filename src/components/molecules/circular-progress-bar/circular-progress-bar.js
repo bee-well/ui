@@ -1,8 +1,7 @@
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const percentage = 66;
-const ProgressCircle = () => {
+const ProgressCircle = ({ percentage }) => {
   return (
     <div className="progress-bar" style={{ width: 150, height: 150 }}>
       <CircularProgressbar
