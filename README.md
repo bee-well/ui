@@ -22,7 +22,7 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
 ### Organismer
 * Modals
   * ReportMoodModal
-  * SignUpModal
+  * SignUpModal ✅
   * SignInModal
 * Cards
   * ProfileCard
