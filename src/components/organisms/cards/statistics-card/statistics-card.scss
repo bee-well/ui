@@ -1,0 +1,15 @@
+.statistics-card {
+    display: inline-flex !important;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+
+    * > {
+        flex: 1;
+    }
+
+    &__data {
+        display: inline-flex;
+        align-items: center;
+    }
+}

@@ -6,6 +6,7 @@ const CircularProgressBar = ({percentage}) => {
       series={[percentage]}
       type="radialBar"
       height={200}
+      width={200}
       options={{
         chart: {
           height: 200,
@@ -27,7 +28,7 @@ const CircularProgressBar = ({percentage}) => {
               imageOffsetY: 0,
               position: 'front',
               dropShadow: {
-                enabled: true,
+                enabled: false,
                 top: 3,
                 left: 0,
                 blur: 4,
@@ -40,27 +41,28 @@ const CircularProgressBar = ({percentage}) => {
               margin: 0,
               dropShadow: {
                 enabled: true,
-                top: -3,
+                top: 1,
                 left: 0,
-                blur: 4,
-                opacity: 0.15
+                blur: 6,
+                opacity: 0.05
               }
             },
             dataLabels: {
               show: true,
               name: {
-                offsetY: -10,
+                offsetY: -15,
                 show: true,
-                color: '#888',
+                color: '#aaa',
                 fontSize: '14px'
               },
               value: {
                 formatter: function(val) {
                   return parseInt(val);
                 },
-                color: '#111',
+                color: '#2C3E50',
                 fontSize: '32px',
                 show: true,
+                offsetY: 10
               }
             }
           }
