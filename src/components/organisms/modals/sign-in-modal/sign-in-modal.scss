@@ -1,0 +1,70 @@
+@import "../../../../sass/spaces.scss";
+@import "../../../../sass/colors.scss";
+
+.sign-in-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    > * {
+        min-width: 51.2rem;
+
+        &:not(:last-child):not(:first-child) {
+            margin-bottom: $space-x-large;
+        }
+    }
+
+    &__title {
+        margin-bottom: $space-xxx-large;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__prompt {
+        text-align: center;
+        color: $color-error;
+        animation-name: prompt;
+        animation-fill-mode: forwards;
+        animation-duration: .2s;
+        animation-iteration-count: 1;
+    }
+
+    &__email {
+        display: flex;
+        * {
+            flex: 1;
+        }
+    }
+
+    &__password {
+        display: flex;
+        
+        > * {
+            flex: 1;
+            &:not(:last-child) { 
+                margin-right: $space-x-large;
+            }
+        }
+    }
+
+    &__submit-button {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@keyframes prompt {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.02);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
