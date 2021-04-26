@@ -1,8 +1,12 @@
+@import "../../../../sass/colors.scss";
+
 .statistics-card {
     display: inline-flex !important;
     justify-content: space-between;
     align-items: stretch;
     flex-direction: column;
+    flex: 1;
+    background-color: $color-light;
 
     * > {
         flex: 1;
@@ -11,5 +15,6 @@
     &__data {
         display: inline-flex;
         align-items: center;
+        justify-content: space-around;
     }
 }

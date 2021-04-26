@@ -7,7 +7,7 @@ import SecondaryHeading from "../../../atoms/headings/secondary-heading"
 const StatisticsCard = ({ data, title }) => {
     return (
         <Card className="statistics-card">
-            <SecondaryHeading>{title}</SecondaryHeading>
+            { title ?  <SecondaryHeading>{title}</SecondaryHeading> : null }
             <div className="statistics-card__data">
                 <ProgressBar 
                     percentage={data.happiness}

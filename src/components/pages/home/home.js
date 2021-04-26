@@ -8,10 +8,26 @@ import DiscreteButton from "../../atoms/buttons/discrete-button"
 import CtaButton from "../../atoms/buttons/cta-button"
 import Button from "../../atoms/buttons/button"
 import SecondaryHeading from "../../atoms/headings/secondary-heading"
+import OverviewCard from "../../organisms/cards/statistics-card"
 
 const Home = () => {
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
+
+    const generateSampleData = () => {
+        const date = new Date()
+        return {
+            happiness: 65,
+            dataPoints: [
+                { mood: 1, reported: date },
+                { mood: 2, reported: new Date(date).setDate(date.getDate() + 1) },
+                { mood: 3, reported: new Date(date).setDate(date.getDate() + 2) },
+                { mood: 5, reported: new Date(date).setDate(date.getDate() + 3) },
+                { mood: 4, reported: new Date(date).setDate(date.getDate() + 4) },
+                { mood: 5, reported: new Date(date).setDate(date.getDate() + 5) },
+            ]
+        }
+    }
 
     const onSignUp = (firstName, lastName, email, password) => {
 
@@ -56,37 +72,17 @@ const Home = () => {
                     <div className="home__splash--content">
                         <h2 className="home__splash--content--title">The Bee-Well Saga</h2>
                         <p className="home__splash--content--text">
-                            Bee-Well was created by four computer science student at Kristianstad University for the course
+                            Bee-Well was created by four computer science students at Kristianstad University for the course
                             "Development for the Cloud". The task was to develop an application that includes a back-end 
                             running on the cloud as well as some kind of front-end. We decided to get creative with the back-end.
                             Bee-Well is built with a kind of microservice approach with four individually deployable services that
                             communicate through a instance of RabbitMQ. All of this is running on the Heroku Cloud and has been 
                             set up with both CI and CD functionality using GitHub Actions. 
                         </p>
-                        <div className="home__splash--content--repos">
-                            <a href="https://github.com/bee-well/docs" className="home__splash--repo-link" target="_blank">
-                                <h3>docs</h3>
-                                <p>We used this repo to host our initial design thoughts, PlantUML-style!</p>
-                            </a>
-                            <a href="https://github.com/bee-well/ui" target="_blank" className="home__splash--repo-link">
-                                <h3>ui</h3>
-                                <p>The React application we created as a front-end</p>
-                            </a>
-                        </div>
-                        <div className="home__splash--content--repos">
-                            <a href="https://github.com/bee-well/auth" className="home__splash--repo-link" target="_blank">
-                                <h3>auth</h3>
-                                <p>We gotta know who is logged in somehow, and Golang with JWT did the trick!</p>
-                            </a>
-                            <a href="https://github.com/bee-well/mood" className="home__splash--repo-link" target="_blank">
-                                <h3>mood</h3>
-                                <p>A service made with Node.js + Express that reports your mood</p>
-                            </a>
-                        </div>
-                        <div className="home__splash--content--repos">
-                            <a href="https://github.com/bee-well/statistics" className="home__splash--repo-link" target="_blank">
-                                <h3>statistics</h3>
-                                <p>This is the money-shot! This service collects mood data and gives it back to you, nice and processed</p>
+                        <div className="home__splash--content--data">
+                            <OverviewCard data={generateSampleData()} />
+                            <a href="https://github.com/bee-well" target="_blank" className="home__splash--content--github">
+                                <h3>View more on GitHub</h3>
                             </a>
                         </div>
                     </div>

@@ -101,7 +101,7 @@
                 font-size: 1.8rem;
                 line-height: 1.8;
                 text-align: justify;
-                margin-bottom: $space-xxxx-large;
+                margin-bottom: $space-x-large;
                 background-color: $color-light;
                 padding: $space-medium;
                 transition: all .2s;
@@ -115,6 +115,53 @@
 
                 &:not(:last-child) {
                     margin-bottom: $space-xxx-large;
+                }
+            }
+
+            &--data {
+                transform: skewY(-4deg);
+                padding: $space-medium;
+                display: flex;
+                flex-direction: row;
+
+                > div {
+                    transition: all .2s ease-out;
+
+                    &:hover {
+                        transform: translate(-.5rem, -.5rem) scale(1.05);
+                    }
+
+                    div {
+                        transition: all .2s ease-out;
+
+                        &:hover {
+                            transform: translate(-1rem, -1rem) scale(1.1);
+                        }
+                    }
+                }
+            }
+
+            &--github {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                border-radius: 1.6rem;
+                margin-left: $space-xx-large;
+                background-color: rgba($color-light, .2);
+                backdrop-filter: blur(1rem);
+                box-shadow: 0 .8rem 1.6rem rgba(#000, .15);
+                color: $color-text-light;
+                text-decoration: none;
+                transition: all .2s ease-out;
+
+                &:hover {
+                    transform: translate(-.5rem, -.5rem) scale(1.05);
+                }
+
+                h3 {
+                    border-bottom: .4rem solid $color-text-light;
+                    text-shadow: 0 .4rem .8rem rgba(#000, .15);
                 }
             }
         }

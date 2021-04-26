@@ -6,7 +6,7 @@ const CircularProgressBar = ({percentage, title}) => {
       series={[percentage]}
       type="radialBar"
       height={200}
-      width={200}
+      width={160}
       options={{
         chart: {
           height: 200,
