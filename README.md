@@ -17,17 +17,17 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
 ### Molekyler
 * Card ✅
 * CircularProgressBar ✅
-* Chart
+* Chart ✅
 * Modal ✅
 ### Organismer
 * Modals
   * ReportMoodModal
   * SignUpModal ✅
-  * SignInModal
+  * SignInModal ✅
 * Cards
   * ProfileCard
   * WelcomeCard
-  * OverviewCard
+  * OverviewCard -> soon done
   * ReportCard
   * FilterCard
   * DayCard
