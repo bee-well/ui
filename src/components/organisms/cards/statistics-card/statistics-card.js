@@ -12,6 +12,7 @@ const StatisticsCard = ({ data, title }) => {
             <div className="statistics-card__data">
                 <ProgressBar 
                     percentage={data.happiness}
+                    title="Happiness"
                 />
                 <Chart 
                     data={data.dataPoints}

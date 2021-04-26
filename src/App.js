@@ -9,6 +9,9 @@ function App() {
       { mood: 3, reported: "2016-06-17" },
       { mood: 4, reported: "2016-06-19" },
       { mood: 5, reported: "2016-06-20" },
+      { mood: 4, reported: "2016-06-21" },
+      { mood: 3, reported: "2016-06-22" },
+      { mood: 5, reported: "2016-06-23" },
     ]
   }
   return (
