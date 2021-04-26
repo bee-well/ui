@@ -17,7 +17,12 @@ const Chart = ({ data }) => {
                 chart: {
                     type: 'line',
                     toolbar: {
-                        show: false
+                        show: true,
+                        tools: {
+                            download: false,
+                            zoom: false,
+                            reset: false,
+                        }
                     }
                 },
                 stroke: {
@@ -27,7 +32,7 @@ const Chart = ({ data }) => {
                 xaxis: {
                     type: 'datetime',
                     categories: x,
-                    tickAmount: 10,
+                    tickAmount: 1,
                     labels: {
                         formatter: function(value, timestamp, opts) {
                             return opts.dateFormatter(new Date(timestamp), 'dd/M')
@@ -43,21 +48,22 @@ const Chart = ({ data }) => {
                     }
                 },
                 fill: {
-                    colors: ["#00BA88"],
+                    colors: ["#F59E11"],
                     type: 'gradient',
                     gradient: {
                         shade: 'dark',
-                        gradientToColors: [ '#ED2E7E'],
-                        shadeIntensity: 1,
-                        type: 'vertical',
+                        type: 'horizontal',
+                        shadeIntensity: 0.5,
+                        gradientToColors: ['#F39C12'],
+                        inverseColors: true,
                         opacityFrom: 1,
                         opacityTo: 1,
-                        stops: [0, 100]
-                    },
+                        stops: [100, 100]
+                    }
                 },
                 markers: {
                     size: 4,
-                    colors: ["#FFA41B"],
+                    colors: ["#aaa"],
                     strokeColors: "#fff",
                     strokeWidth: 2,
                     hover: {
@@ -65,8 +71,9 @@ const Chart = ({ data }) => {
                     }
                 },
                 yaxis: {
-                    min: 0,
+                    min: 1,
                     max: 5,
+                    tickAmount: 4,
                     title: {
                         text: '',
                     },
