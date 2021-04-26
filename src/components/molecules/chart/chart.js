@@ -63,7 +63,7 @@ const Chart = ({ data }) => {
                 },
                 markers: {
                     size: 4,
-                    colors: ["#aaa"],
+                    colors: ["#2C3E50"],
                     strokeColors: "#fff",
                     strokeWidth: 2,
                     hover: {
@@ -77,7 +77,7 @@ const Chart = ({ data }) => {
                     title: {
                         text: '',
                     },
-                }
+                },
             }}
         />
     )
