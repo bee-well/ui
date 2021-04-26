@@ -1,6 +1,6 @@
 import ApexCharts from "react-apexcharts"
 
-const CircularProgressBar = ({percentage}) => {
+const CircularProgressBar = ({percentage, title}) => {
   return (
     <ApexCharts
       series={[percentage]}
@@ -84,7 +84,7 @@ const CircularProgressBar = ({percentage}) => {
         stroke: {
           lineCap: 'round'
         },
-        labels: ['Percent'],
+        labels: [title],
       }}
     />
   )
