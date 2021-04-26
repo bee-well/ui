@@ -1,5 +1,4 @@
 import "./statistics-card.scss"
-
 import Card from "../../../molecules/card"
 import ProgressBar from "../../../molecules/circular-progress-bar"
 import Chart from "../../../molecules/chart"
