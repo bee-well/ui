@@ -3,11 +3,18 @@
 
 .cta-button {
     padding: $space-medium $space-x-large;
-    border-radius: $space-x-large;
+    border-radius: $space-xxxx-large;
     border: none;
     outline: none;
     background: $color-primary;
     color: $color-text-light;
     font-weight: bold;
     box-shadow: 0 .8rem 1.6rem rgba($color-primary, 0.15);
+    cursor: pointer;
+}
+
+.cta-button-big {
+    padding: $space-x-large $space-xxx-large;
+    border-radius: $space-xxxx-large;
+    font-size: 1.8rem;
 }
