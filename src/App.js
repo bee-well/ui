@@ -1,9 +1,8 @@
-import WelcomeCard from '../src/components/organisms/cards/welcome-card'
-
+import ProfileCard from '../src/components/organisms/cards/profile-card/profile-card'
 function App() {
   return (
     <div className="App">
-    <WelcomeCard></WelcomeCard>
+    <ProfileCard />
     </div>
   );
 }
