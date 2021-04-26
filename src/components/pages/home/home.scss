@@ -1,0 +1,191 @@
+@import "../../../sass/colors.scss";
+@import "../../../sass/spaces.scss";
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    &__content {
+        display: flex;
+        height: 100%;
+    }
+
+    &__user-controls {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &__title {
+        margin-left: $space-xxxx-large;
+        display: flex;
+        flex-direction: column;
+
+        > *:not(:last-child) {
+            margin-bottom: $space-x-large;
+        }
+
+        &--accounts {
+            display: inline-block;
+            align-self: flex-end;   
+        }
+
+        &--title {
+            display: inline-block;
+            font-size: 7.2rem;
+            color: $color-text-dark;
+            span {
+                display: inline-block;
+                border-bottom: 1.2rem solid $color-primary;
+            }
+        }
+
+        &--buttons {
+            align-self: flex-start;
+            button {
+                transition: all .2s;
+                &:hover {
+                    transform: translateY(-.5rem) scale(1.05);
+                }
+            }
+            *:not(:last-child) {
+                margin-right: $space-x-large;
+            }
+        }
+    }
+
+    &__introduction {
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    &__splash {
+        flex: 1;
+        margin-left: $space-xxxxx-large;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+
+        &--image {
+            position: absolute;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            transition: all .3s ease-out;
+            filter: brightness(.9);
+        }
+
+        &--content {
+            position: relative;
+            margin: $space-xxxx-large;
+            color: $color-text-dark;
+            transition: all .3s ease-out;
+
+            &--title {
+                font-size: 3.6rem;
+                margin-bottom: $space-large;
+                background-color: $color-light;
+                padding: $space-medium;
+                transition: all .2s;
+                transform: skewY(-4deg);
+            }
+
+            &--text {
+                font-size: 1.8rem;
+                line-height: 1.8;
+                text-align: justify;
+                margin-bottom: $space-xxxx-large;
+                background-color: $color-light;
+                padding: $space-medium;
+                transition: all .2s;
+                transform: skewY(-4deg);
+            }
+
+            &--repos {
+                display: flex;
+                transform: skewY(-4deg);
+                transition: all .2s;
+
+                &:not(:last-child) {
+                    margin-bottom: $space-xxx-large;
+                }
+            }
+        }
+
+        &--repo-link {
+            flex: 1;
+            display: block;
+            border-radius: $space-xx-large;
+            padding: $space-xx-large;
+            background: linear-gradient(to right bottom, rgba($color-light, .2), rgba($color-light, 0));
+            text-decoration: none;
+            color: $color-text-light;
+            box-shadow: 0 .8rem 2.4rem rgba(#000, 0.25);
+            transition: all .2s;
+            backdrop-filter: blur(10px);
+
+            h3 {
+                margin-bottom: $space-medium;
+            }
+
+            &:not(:last-child) {
+                margin-right: $space-xxx-large;
+            }
+
+            &:hover {
+                transform: translateY(-1rem) scale(1.1);
+                box-shadow: 0 2.4rem 2.4rem rgba(#000, 0.2);
+            }
+        }
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        &--email {
+            margin-top: auto;
+            margin-bottom: $space-xx-large;
+            width: 2.8rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 2.4rem;
+            color: $color-text-dark;
+        }
+
+        &--social-media {
+            display: flex; 
+            flex-direction: column;
+
+            a {
+                padding: $space-xx-large;
+                text-decoration: none;
+                font-weight: bolder;
+
+                &:nth-child(1) {
+                    background-color: $color-sm-snapchat;
+                    color: $color-text-dark;
+                }
+
+                &:nth-child(2) {
+                    background-color: $color-sm-instagram;
+                    color: $color-text-light;
+                }
+
+                &:nth-child(3) {
+                    background-color: $color-sm-facebook;
+                    color: $color-text-light;
+                }
+            }
+        }
+    }
+}

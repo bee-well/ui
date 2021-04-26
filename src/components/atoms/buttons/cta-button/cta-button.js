@@ -1,10 +1,10 @@
 import './cta-button.scss'
 
-const CtaButton = ({ onClick, children }) => {
+const CtaButton = ({ onClick, children, big }) => {
     return (
         <button 
             onClick={onClick}
-            className="cta-button"
+            className={["cta-button", big ? "cta-button-big" : null].join(" ")}
         >
             {children}
         </button>

@@ -1,19 +1,17 @@
 @import "../../../../sass/spaces.scss";
 @import "../../../../sass/colors.scss";
 
-.button {
+.discrete-button {
     padding: $space-medium $space-x-large;
     border-radius: $space-x-large;
     border: none;
     outline: none;
-    background: $color-light;
+    background: transparent;
     color: $color-text-dark;
-    font-weight: bold;
+    font-weight: normal;
     cursor: pointer;
 }
 
-.button-big {
-    padding: $space-x-large $space-xxx-large;
-    border-radius: $space-xxxx-large;
+.discrete-button-big {
     font-size: 1.8rem;
 }

@@ -1,10 +1,10 @@
 import './button.scss'
 
-const button = ({ onClick, children }) => {
+const button = ({ onClick, children, big }) => {
     return (
         <button 
             onClick={onClick}
-            className="button"
+            className={["button", big ? "button-big" : null].join(" ")}
         > 
             {children}
         </button>
