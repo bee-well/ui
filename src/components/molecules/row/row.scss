@@ -1,0 +1,12 @@
+@import "../../../sass/colors.scss";
+@import "../../../sass/spaces.scss";
+
+.row {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    > * {
+        margin: $space-medium;
+    }
+}

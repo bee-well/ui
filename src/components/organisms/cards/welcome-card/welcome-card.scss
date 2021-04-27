@@ -1,8 +1,11 @@
 .welcome-card {
+  flex: 1;
+
   display: inline-flex !important;
   justify-content: space-between;
   align-items: stretch;
   flex-direction: column;
+  background-color: white;
 
   * > {
     flex: 1;
