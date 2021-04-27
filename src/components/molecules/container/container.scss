@@ -1,0 +1,12 @@
+@import "../../../sass/colors.scss";
+@import "../../../sass/spaces.scss";
+
+.container {
+    background-color: $color-light;
+    padding: $space-x-large;
+    border-radius: 2.4rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

@@ -1,12 +1,18 @@
 @import "../../../../sass/colors.scss";
 
 .statistics-card {
-    display: inline-flex !important;
-    justify-content: space-between;
-    align-items: stretch;
-    flex-direction: column;
     flex: 1;
-    background-color: $color-light;
+    
+    &__content {
+        display: inline-flex !important;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    
+    background-color: white;
 
     * > {
         flex: 1;
