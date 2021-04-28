@@ -1,7 +1,7 @@
 import ApexCharts from "react-apexcharts"
 
 const Chart = ({ data }) => {
-    const x = data.map(mood => mood.reported)
+    const x = data.map(mood => mood.date)
     const y = data.map(mood => mood.mood)
 
     return (

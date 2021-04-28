@@ -1,40 +1,61 @@
 import "./home.scss"
 
-import {useState} from "react"
+import {useState, useEffect} from "react"
+
+import {authenticate, signUp} from "../../../api/bee-well"
 
 import SignUpModal from "../../organisms/modals/sign-up-modal"
 import SignInModal from "../../organisms/modals/sign-in-modal"
 import DiscreteButton from "../../atoms/buttons/discrete-button"
 import CtaButton from "../../atoms/buttons/cta-button"
 import Button from "../../atoms/buttons/button"
-import SecondaryHeading from "../../atoms/headings/secondary-heading"
 import OverviewCard from "../../organisms/cards/statistics-card"
 
 const Home = () => {
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
+    const [sampleData, setSampleData] = useState(false)
 
     const generateSampleData = () => {
         const date = new Date()
         return {
-            happiness: 65,
+            happiness: Math.floor(Math.random() * 90) + 10,
             dataPoints: [
-                { mood: 1, reported: date },
-                { mood: 2, reported: new Date(date).setDate(date.getDate() + 1) },
-                { mood: 3, reported: new Date(date).setDate(date.getDate() + 2) },
-                { mood: 5, reported: new Date(date).setDate(date.getDate() + 3) },
-                { mood: 4, reported: new Date(date).setDate(date.getDate() + 4) },
-                { mood: 5, reported: new Date(date).setDate(date.getDate() + 5) },
+                { mood: Math.floor(Math.random() * 5) + 1, date: date },
+                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 1) },
+                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 2) },
+                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 3) },
+                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 4) },
+                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 5) },
             ]
         }
     }
 
-    const onSignUp = (firstName, lastName, email, password) => {
+    useEffect(() => {
+        setSampleData(generateSampleData())
+    }, [])
 
-    }
+    const onSignUp = async (firstName, lastName, email, password) => {
+        const result = await signUp(firstName, lastName, email, password)
+        if (result.success) {
+            alert("signed up!")
+            setIsSignUpOpen(false)
+            setTimeout(() => setIsSignInOpen(true), 500)
+        } else {
+            // TODO: print error
+            console.log("ouch")
+        }
+    }  
 
-    const onSignIn = (email, password) => {
-
+    const onSignIn = async (email, password) => {
+        const result = await authenticate(email, password)
+        if (result.success) {
+            // TODO: router redirect
+            setIsSignInOpen(false)
+        } else {
+            // TODO: print error
+            console.log(result.payload)
+        }
     }
 
     return (
@@ -80,8 +101,8 @@ const Home = () => {
                             set up with both CI and CD functionality using GitHub Actions. 
                         </p>
                         <div className="home__splash--content--data">
-                            <OverviewCard data={generateSampleData()} />
-                            <a href="https://github.com/bee-well" target="_blank" className="home__splash--content--github">
+                            <OverviewCard data={sampleData} />
+                            <a href="https://github.com/bee-well" target="_blank" rel="noreferrer" className="home__splash--content--github">
                                 <h3>View more on GitHub</h3>
                             </a>
                         </div>
@@ -90,9 +111,9 @@ const Home = () => {
                 <div className="home__contact">
                     <p className="home__contact--email">contact@bee-well.com</p>
                     <nav className="home__contact--social-media">
-                        <a href="#">SN</a>
-                        <a href="#">IG</a>
-                        <a href="#">FB</a>
+                        <a href="https://www.snapchat.com/l/en-gb/">SN</a>
+                        <a href="https://www.instagram.com/">IG</a>
+                        <a href="https://www.facebook.com/">FB</a>
                     </nav>
                 </div>
             </div>

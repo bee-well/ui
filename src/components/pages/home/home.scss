@@ -67,7 +67,6 @@
         flex: 1;
         margin-left: $space-xxxxx-large;
         position: relative;
-        overflow: hidden;
         display: flex;
         justify-content: stretch;
         align-items: center;
@@ -91,7 +90,7 @@
             &--title {
                 font-size: 3.6rem;
                 margin-bottom: $space-large;
-                background-color: $color-light;
+                background-color: white;
                 padding: $space-medium;
                 transition: all .2s;
                 transform: skewY(-4deg);
@@ -102,7 +101,7 @@
                 line-height: 1.8;
                 text-align: justify;
                 margin-bottom: $space-x-large;
-                background-color: $color-light;
+                background-color: white;
                 padding: $space-medium;
                 transition: all .2s;
                 transform: skewY(-4deg);
@@ -164,32 +163,6 @@
                     border-bottom: .4rem solid $color-text-light;
                     text-shadow: 0 .4rem .8rem rgba(#000, .15);
                 }
-            }
-        }
-
-        &--repo-link {
-            flex: 1;
-            display: block;
-            border-radius: $space-xx-large;
-            padding: $space-xx-large;
-            background: linear-gradient(to right bottom, rgba($color-light, .2), rgba($color-light, 0));
-            text-decoration: none;
-            color: $color-text-light;
-            box-shadow: 0 .8rem 2.4rem rgba(#000, 0.25);
-            transition: all .2s;
-            backdrop-filter: blur(10px);
-
-            h3 {
-                margin-bottom: $space-medium;
-            }
-
-            &:not(:last-child) {
-                margin-right: $space-xxx-large;
-            }
-
-            &:hover {
-                transform: translateY(-1rem) scale(1.1);
-                box-shadow: 0 2.4rem 2.4rem rgba(#000, 0.2);
             }
         }
     }
