@@ -28,7 +28,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_ENV=dev PORT=3002 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --setupFiles ./src/setup-test.js",
     "eject": "react-scripts eject"
