@@ -25,16 +25,16 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
   * SignUpModal ✅
   * SignInModal ✅
 * Cards
-  * ProfileCard
-  * WelcomeCard
-  * OverviewCard -> soon done
+  * ProfileCard 🔜
+  * WelcomeCard ✅
+  * OverviewCard 🔜
   * ReportCard
   * FilterCard
   * DayCard
   * HourCard
   * ReportAmountCard
 ### Pages
-* Start
+* Start ✅
 * Panel
 * Statistics
 
