@@ -2,7 +2,7 @@ import "./home.scss"
 
 import {useState, useEffect} from "react"
 
-import {authenticate, signUp, reportMood, getStatistics} from "../../../api/bee-well"
+import {authenticate, signUp} from "../../../api/bee-well"
 
 import SignUpModal from "../../organisms/modals/sign-up-modal"
 import SignInModal from "../../organisms/modals/sign-in-modal"
@@ -102,7 +102,7 @@ const Home = () => {
                         </p>
                         <div className="home__splash--content--data">
                             <OverviewCard data={sampleData} />
-                            <a href="https://github.com/bee-well" target="_blank" className="home__splash--content--github">
+                            <a href="https://github.com/bee-well" target="_blank" rel="noreferrer" className="home__splash--content--github">
                                 <h3>View more on GitHub</h3>
                             </a>
                         </div>
@@ -111,9 +111,9 @@ const Home = () => {
                 <div className="home__contact">
                     <p className="home__contact--email">contact@bee-well.com</p>
                     <nav className="home__contact--social-media">
-                        <a href="#">SN</a>
-                        <a href="#">IG</a>
-                        <a href="#">FB</a>
+                        <a href="https://www.snapchat.com/l/en-gb/">SN</a>
+                        <a href="https://www.instagram.com/">IG</a>
+                        <a href="https://www.facebook.com/">FB</a>
                     </nav>
                 </div>
             </div>

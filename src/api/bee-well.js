@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const inProduction = process.env.NODE_ENV == "prod"
+const inProduction = process.env.NODE_ENV === "prod"
 
 const authApi = axios.create({
     baseURL: inProduction ? "https://bw-auth.herokuapp.com" : "http://localhost:8080"
