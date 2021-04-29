@@ -10,10 +10,12 @@
   color: white;
   background-position: center;
   background-size: cover;
+  flex: 1;
+  
 
   &__email,
   &__name {
-    margin-top: $space-x-large;
+    margin-top: $space-medium;
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -27,7 +29,7 @@
   }
 
   &__button {
-    margin-top: $space-xx-large;
+    margin-top: $space-medium;
     display: flex;
     justify-content: flex-end;
   }
