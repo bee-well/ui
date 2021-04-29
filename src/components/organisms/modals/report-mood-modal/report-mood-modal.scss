@@ -1,0 +1,25 @@
+@import "../../../../sass/spaces.scss";
+@import "../../../../sass/colors.scss";
+
+.report-mood-modal {
+    &__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+  
+      &--sad {
+        fill: #E74C3C;
+      }
+      &--wondering {
+        fill: #E67E22;
+      }
+      &--neutral {
+        fill: #F1C40F;
+      }
+      &--smile {
+        fill: #2ECC71;
+      }
+      &--happy {
+        fill: #3498DB;
+      }
+    }
+  }
