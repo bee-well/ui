@@ -7,7 +7,7 @@ const ReportCard = ({ reports, recommendedReports }) => {
       <div className="reports-card__data">
       <span className="reports-card__indicator"></span>
         <p>
-           {reports} reports of {recommendedReports}
+          {reports} reports of {recommendedReports}
           recommended
         </p>
       </div>
