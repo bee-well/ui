@@ -4,14 +4,14 @@ import SecondaryHeading from "../../../atoms/headings/secondary-heading/secondar
 
 const ReportsAmountCard = ({ counter }) => {
   return (
-    <div className="reports-amount-card__heading">
-      <Card>
+    <Card className="reports-amount-card">
+      <div className="reports-amount-card__heading">
         <SecondaryHeading>Reports</SecondaryHeading>
         <div className="reports-amount-card__data">
           <p>{counter}</p>
         </div>
-      </Card>
-    </div>
+      </div>
+    </Card>
   );
 };
 

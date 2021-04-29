@@ -2,6 +2,8 @@
 @import "../../../../sass/spaces.scss";
 
 .reports-amount-card {
+  background-color: white;
+  flex: 1;
   &__heading {
     color: $color-text-dark;
     margin-left: 1rem;
