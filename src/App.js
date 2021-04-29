@@ -1,9 +1,9 @@
-import Home from "./components/pages/home"
-import ReportsCard from '../src/components/organisms/cards/reports-card/reports-card'
+import ReportsAmountCard from '../src/components/organisms/cards/reports-amount-card/reports-amount-card'
 function App() {
   return (
     <div className="App">
-      <ReportsCard />
+      
+      <ReportsAmountCard/>
     </div>
   );
 }

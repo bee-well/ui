@@ -1,0 +1,17 @@
+@import "../../../../sass/colors.scss";
+@import "../../../../sass/spaces.scss";
+
+.reports-amount-card {
+  &__heading {
+    color: $color-text-dark;
+    margin-left: 1rem;
+  }
+  &__data {
+    color: $color-primary;
+    margin-top: 1.2rem;
+    font-weight: bold;
+    align-items: center;
+    margin-left: 3.5rem;
+    font-size: 2.4rem;
+  }
+}
