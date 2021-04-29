@@ -1,0 +1,16 @@
+@import "../../../../sass/colors.scss";
+@import "../../../../sass/spaces.scss";
+
+.hour-card {
+  &__heading {
+    color: $color-text-dark;
+    font-size: $space-xx-large;
+  }
+
+  &__data {
+    font-weight: bold;
+    font-size: $space-xx-large;
+    color: $color-primary;
+    margin-top: $space-medium;
+  }
+}
