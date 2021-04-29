@@ -1,0 +1,20 @@
+@import "../../../../sass/colors.scss";
+@import "../../../../sass/spaces.scss";
+
+.profile-card {
+  display: inline-flex !important;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  background-color: orange;
+  color: white;
+}
+
+.profile-card p {
+  margin-top: 10px;
+}
+.profile-card button {
+  margin-top: 30px;
+  float: right;
+}
+
