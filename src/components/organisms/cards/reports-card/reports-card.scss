@@ -1,0 +1,21 @@
+@import "../../../../sass/colors.scss";
+@import "../../../../sass/spaces.scss";
+
+.reports-card {
+  &__data {
+    font-size: $space-large;
+    color: $color-text-dark;
+    display: flex;
+    align-items: center;
+  } 
+  &__indicator {
+
+    display: inline-block;
+    background-color: $color-primary;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.6rem;
+    
+  }
+}
