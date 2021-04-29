@@ -8,10 +8,10 @@
   }
   &__data {
     color: $color-primary;
-    margin-top: 1.2rem;
+    margin-top: $space-large;
     font-weight: bold;
     align-items: center;
-    margin-left: 3.5rem;
-    font-size: 2.4rem;
+    margin-left: $space-xxx-large;
+    font-size: $space-large;
   }
 }
