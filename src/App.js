@@ -4,6 +4,11 @@ function App() {
     <div className="App">
       
       <ReportsAmountCard/>
+
+function App() {
+  return (
+    <div className="App">
+
     </div>
   );
 }
