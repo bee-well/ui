@@ -1,8 +1,8 @@
 import './card.scss'
 
-const Card = ({children, className}) => {
+const Card = ({children, className, style}) => {
     return (
-        <div className={["card", className ? className : null].join(" ")}>
+        <div style={style} className={["card", className ? className : null].join(" ")}>
             {children}
         </div>
     )
