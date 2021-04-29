@@ -1,9 +1,9 @@
-import DayCard from '../src/components/organisms/cards/day-card/day-card'
+import HourCard from '../src/components/organisms/cards/hour-card/hour-card'
 function App() {
   return (
     <div className="App">
       
-      <DayCard/>
+      <HourCard/>
     </div>
   );
 }
