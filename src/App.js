@@ -2,7 +2,7 @@ import ProfileCard from '../src/components/organisms/cards/profile-card/profile-
 function App() {
   return (
     <div className="App">
-    <ProfileCard email="info@rasmusnilsson.se" name="Erik Rasmus Nilsson" />
+      <ProfileCard email="info@rasmusnilsson.se" name="Erik Rasmus Nilsson" />
     </div>
   );
 }

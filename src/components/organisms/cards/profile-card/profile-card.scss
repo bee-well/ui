@@ -8,13 +8,28 @@
   flex-direction: column;
   background-color: orange;
   color: white;
-}
+  background-position: center;
+  background-size: cover;
 
-.profile-card p {
-  margin-top: 10px;
-}
-.profile-card button {
-  margin-top: 30px;
-  float: right;
+  &__email,
+  &__name {
+    margin-top: $space-x-large;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  &__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: $color-text-light;
+    margin-right: 1.2rem;
+  }
+
+  &__button {
+    margin-top: $space-xx-large;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
