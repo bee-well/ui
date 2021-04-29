@@ -7,11 +7,11 @@ const authApi = axios.create({
 })
 
 const moodApi = axios.create({
-    baseURL: inProduction ? "https://bw-auth.herokuapp.com" : "http://localhost:3000"
+    baseURL: inProduction ? "https://bw-mood.herokuapp.com" : "http://localhost:3000"
 })
 
 const statisticsApi = axios.create({
-    baseURL: inProduction ? "https://bw-auth.herokuapp.com" : "http://localhost:8081"
+    baseURL: inProduction ? "https://bw-statistics.herokuapp.com" : "http://localhost:8081"
 })
 
 const setToken = token => {
