@@ -1,9 +1,9 @@
-import ReportsAmountCard from '../src/components/organisms/cards/reports-amount-card/reports-amount-card'
+import DayCard from '../src/components/organisms/cards/day-card/day-card'
 function App() {
   return (
     <div className="App">
       
-      <ReportsAmountCard/>
+      <DayCard/>
     </div>
   );
 }
