@@ -1,25 +1,65 @@
 @import "../../../../sass/spaces.scss";
 @import "../../../../sass/colors.scss";
 
+$icon-size: 3.5rem;
+
 .report-mood-modal {
-    &__icon {
-      width: 2.5rem;
-      height: 2.5rem;
-  
-      &--sad {
-        fill: #E74C3C;
-      }
-      &--wondering {
-        fill: #E67E22;
-      }
-      &--neutral {
-        fill: #F1C40F;
-      }
-      &--smile {
-        fill: #2ECC71;
-      }
-      &--happy {
-        fill: #3498DB;
-      }
+  padding-right: 5rem;
+  padding-left: 5rem;
+
+  &__title {
+    text-align: center;
+  }
+    
+  &__icons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: $space-x-large;
+    margin-top: $space-xxx-large;
+  }
+
+  &__icon {
+    &--sad {
+      fill: #E74C3C;
+      width: $icon-size;
+      height: $icon-size;
+    }
+    &--wondering {
+      fill: #E67E22;
+      width: $icon-size;
+      height: $icon-size;
+    }
+    &--neutral {
+      fill: #F1C40F;
+      width: $icon-size;
+      height: $icon-size;
+    }
+    &--smile {
+      fill: #2ECC71;
+      width: $icon-size;
+      height: $icon-size;
+    }
+    &--happy {
+      fill: #3498DB;
+      width: $icon-size;
+      height: $icon-size;
     }
   }
+
+  .report-mood-modal__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: $space-medium;
+    margin-top: $space-xxx-large;
+
+    > * {
+      margin: $space-small;
+    }
+  }
+
+  .report-mood-modal__send-button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
