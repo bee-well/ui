@@ -13,7 +13,7 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
   * Password ✅
   * Test ✅
 * DatePicker ✅
-* Icon
+* Icon ✅
 ### Molekyler
 * Card ✅
 * CircularProgressBar ✅
