@@ -10,6 +10,7 @@ import DiscreteButton from "../../atoms/buttons/discrete-button"
 import CtaButton from "../../atoms/buttons/cta-button"
 import Button from "../../atoms/buttons/button"
 import OverviewCard from "../../organisms/cards/statistics-card"
+import Icon from "../../atoms/icon"
 
 const Home = () => {
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
