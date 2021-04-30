@@ -1,6 +1,7 @@
 import "./home.scss"
 
 import {useState, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 
 import {authenticate, signUp} from "../../../api/bee-well"
 
@@ -12,6 +13,7 @@ import Button from "../../atoms/buttons/button"
 import OverviewCard from "../../organisms/cards/statistics-card"
 
 const Home = () => {
+    const history = useHistory()
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
     const [sampleData, setSampleData] = useState(false)
@@ -50,8 +52,7 @@ const Home = () => {
     const onSignIn = async (email, password) => {
         const result = await authenticate(email, password)
         if (result.success) {
-            // TODO: router redirect
-            setIsSignInOpen(false)
+            history.push("/panel")
         } else {
             // TODO: print error
             console.log(result.payload)

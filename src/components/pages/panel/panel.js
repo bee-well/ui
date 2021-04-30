@@ -6,11 +6,27 @@ import ReportCard from "../../../components/organisms/cards/reports-card/reports
 import StatisticCard from "../../organisms/cards/statistics-card/statistics-card";
 import ReportsAmountCard from "../../../components/organisms/cards/reports-amount-card/reports-amount-card"
 import ReportMoodModal from "../../organisms/modals/report-mood-modal";
-import {useState} from "react"
+import {useState, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 import "./panel.scss";
 
+import {getStatistics, reportMood} from "../../../api/bee-well"
+
 const Panel = () => {
+  const history = useHistory()
   const [reportMoodModalOpen, setReportMoodModalOpen] = useState(false)
+  const [todaysStatistics, setTodaysStatistics] = useState(null)
+
+  const fetchTodaysStatistics = async () => {
+    const result = await getStatistics(new Date(), new Date())
+    if (result.success) {
+      setTodaysStatistics(result.payload)
+    } else if (result.code === 401) {
+      history.push("/")
+    }
+  }
+
+  useEffect(() => fetchTodaysStatistics(), [])
 
   const generateSampleData = () => {
     const date = new Date()
@@ -37,12 +53,21 @@ const Panel = () => {
     return tagOptions
   }
 
+  const onReportMood = async (mood, tags) => {
+    const result = await reportMood(mood, tags)
+    if (result.success) {
+      setReportMoodModalOpen(false)
+      fetchTodaysStatistics()
+    }
+  }
+
   return (
     <div className="panel">
       <ReportMoodModal
         open={reportMoodModalOpen}
         onClose={() => setReportMoodModalOpen(false)}
         tagOptions={generateTagOptions()}
+        onReportMood={onReportMood}
       />
       <Container>
         <Row>
@@ -50,10 +75,11 @@ const Panel = () => {
           <WelcomeCard name="Rasmus" onReportMood={() => setReportMoodModalOpen(true)} />
         </Row>
         <Row>
-          <ReportCard reports={4} recommendedReports={12}/>
+          <ReportCard reports={todaysStatistics ? todaysStatistics.reportAmount : 0} recommendedReports={12}/>
         </Row>
         <Row>
-          <StatisticCard data={generateSampleData()}/> <ReportsAmountCard />
+          <StatisticCard title="Today" data={todaysStatistics}/> 
+          <ReportsAmountCard counter={todaysStatistics ? todaysStatistics.reportAmount : 0}/>
         </Row>
       </Container>
     </div>
