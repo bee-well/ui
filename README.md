@@ -29,14 +29,14 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
   * WelcomeCard ✅
   * OverviewCard ✅
   * ReportCard ✅
-  * FilterCard
+  * FilterCard (Soon)
   * DayCard ✅
   * HourCard ✅
   * ReportAmountCard ✅
 ### Pages
 * Start ✅
 * Panel ✅
-* Statistics
+* Statistics (Soon)
 
 ## Under Utveckling
 Se till att du har möjlighet att mocka API calls till backenden då det sannolikt kommer att ta ett tag innan denna delen är helt klar. Och även då behöver du kunna köra UI-delen utan att koppla dig mot den riktiga backenden under utveckling. Jag föreslår att du abstraherar API-calls och gör olika saker beroende på om man är i produktion eller utecklingsläge.
