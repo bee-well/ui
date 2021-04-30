@@ -1,5 +1,6 @@
 @import "../../../sass/colors.scss";
 @import "../../../sass/spaces.scss";
+@import "../../../sass/mixins.scss";
 
 .home {
     display: flex;
@@ -33,7 +34,7 @@
 
         &--title {
             display: inline-block;
-            font-size: 7.2rem;
+            font-size: 4rem;
             color: $color-text-dark;
             span {
                 display: inline-block;
@@ -70,6 +71,7 @@
         display: flex;
         justify-content: stretch;
         align-items: center;
+        max-width: 50%;
 
         &--image {
             position: absolute;
@@ -97,7 +99,7 @@
             }
 
             &--text {
-                font-size: 1.8rem;
+                //font-size: 1.8rem;
                 line-height: 1.8;
                 text-align: justify;
                 margin-bottom: $space-x-large;
@@ -121,7 +123,6 @@
                 transform: skewY(-4deg);
                 padding: $space-medium;
                 display: flex;
-                flex-direction: row;
 
                 > div {
                     transition: all .2s ease-out;
@@ -153,6 +154,7 @@
                 color: $color-text-light;
                 text-decoration: none;
                 transition: all .2s ease-out;
+                padding: $space-xxx-large;
 
                 &:hover {
                     box-shadow: 0 .8rem 2.4rem rgba(#000, .1);

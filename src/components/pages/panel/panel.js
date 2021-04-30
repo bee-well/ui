@@ -5,9 +5,12 @@ import WelcomeCard from "../../organisms/cards/welcome-card/welcome-card";
 import ReportCard from "../../../components/organisms/cards/reports-card/reports-card";
 import StatisticCard from "../../organisms/cards/statistics-card/statistics-card";
 import ReportsAmountCard from "../../../components/organisms/cards/reports-amount-card/reports-amount-card"
+import ReportMoodModal from "../../organisms/modals/report-mood-modal";
+import {useState} from "react"
 import "./panel.scss";
 
-const Panel = ({}) => {
+const Panel = () => {
+  const [reportMoodModalOpen, setReportMoodModalOpen] = useState(false)
 
   const generateSampleData = () => {
     const date = new Date()
@@ -22,20 +25,38 @@ const Panel = ({}) => {
             { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 5) },
         ]
     }
-}
+  }
+
+  const generateTagOptions = () => {
+    const tagOptions = new Map();
+    tagOptions.set(1, ["sad", "worried", "depressed", "anxious", "stressed", "sensitive"])
+    tagOptions.set(2, ["wondering", "pondering", "anxios", "worried", "on edge","tired"])
+    tagOptions.set(3, ["soft", "neutral", "stressless", "okay", "fine"])
+    tagOptions.set(4, ["indifferent", "relaxed", "mellow", "good day", "fun"])
+    tagOptions.set(5, ["happy", "excited", "joyfull", "expectant", "lucky", "dancing"])
+    return tagOptions
+  }
+
   return (
-    <Container>
-      <Row>
-        <ProfileCard email = {'tobiasgustaverik@icloud.com'} name = {'Tobias Andersson'}/>
-        <WelcomeCard />
-      </Row>
-      <Row>
-        <ReportCard />
-      </Row>
-      <Row>
-        <StatisticCard data = {generateSampleData()}/> <ReportsAmountCard />
-      </Row>
-    </Container>
+    <div className="panel">
+      <ReportMoodModal
+        open={reportMoodModalOpen}
+        onClose={() => setReportMoodModalOpen(false)}
+        tagOptions={generateTagOptions()}
+      />
+      <Container>
+        <Row>
+          <ProfileCard email={'info@rasmusnilsson.se'} name = {'Erik Rasmus Nilsson'}/>
+          <WelcomeCard name="Rasmus" onReportMood={() => setReportMoodModalOpen(true)} />
+        </Row>
+        <Row>
+          <ReportCard reports={4} recommendedReports={12}/>
+        </Row>
+        <Row>
+          <StatisticCard data={generateSampleData()}/> <ReportsAmountCard />
+        </Row>
+      </Container>
+    </div>
   );
 };
 
