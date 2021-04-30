@@ -34,11 +34,16 @@
 
         &--title {
             display: inline-block;
-            font-size: 4rem;
+            font-size: 7.2rem;
             color: $color-text-dark;
+
             span {
                 display: inline-block;
                 border-bottom: 1.2rem solid $color-primary;
+            }
+
+            @include respond(tab-land) {
+                font-size: 6.4rem;
             }
         }
 
