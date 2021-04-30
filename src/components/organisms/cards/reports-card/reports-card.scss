@@ -2,6 +2,8 @@
 @import "../../../../sass/spaces.scss";
 
 .reports-card {
+  flex: 1;
+  background-color: white;
   &__data {
     font-size: $space-large;
     color: $color-text-dark;

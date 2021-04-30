@@ -5,11 +5,14 @@ import Button from "../../../atoms/buttons/button/button";
 import CtaButton from "../../../atoms/buttons/cta-button/cta-button";
 const WelcomeCard = ({ name, onReportMood, onViewStatistics }) => {
   return (
-    <Card className="welcome-card column-1-of-3">
+    <Card className="welcome-card">
       <div className="welcome-card__data">
         <SecondaryHeading>Welcome, {name}</SecondaryHeading>
+        <div className="welcome-card__buttons">
         <CtaButton onClick={onReportMood}>Report mood</CtaButton>
         <Button onClick={onViewStatistics}>View statistics</Button>
+        </div>
+        
       </div>
     </Card>
   );

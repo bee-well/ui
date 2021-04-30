@@ -3,7 +3,7 @@ import "./reports-card.scss";
 
 const ReportCard = ({ reports, recommendedReports }) => {
   return (
-    <Card>
+    <Card className="reports-card">
       <div className="reports-card__data">
       <span className="reports-card__indicator"></span>
         <p>
