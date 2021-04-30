@@ -5,7 +5,7 @@ const Tag = ({text, onClick, active, activeColor}) => {
         <div 
             className="tag" 
             style={
-                active ? {background: activeColor} 
+                active ? {background: activeColor, color: "white"} 
                 : null
             }
             onClick={onClick}
