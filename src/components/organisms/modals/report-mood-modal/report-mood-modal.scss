@@ -46,20 +46,25 @@ $icon-size: 3.5rem;
     }
   }
 
-  .report-mood-modal__tags {
+  &__tags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-bottom: $space-medium;
-    margin-top: $space-xxx-large;
+    margin-top: $space-x-large;
 
     > * {
       margin: $space-small;
     }
   }
 
-  .report-mood-modal__send-button {
+  &__send-button {
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__prompt {
+    text-align: center;
+    color: $color-error;
   }
 }
