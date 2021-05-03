@@ -12,7 +12,6 @@ const WelcomeCard = ({ name, onReportMood, onViewStatistics }) => {
         <CtaButton onClick={onReportMood}>Report mood</CtaButton>
         <Button onClick={onViewStatistics}>View statistics</Button>
         </div>
-        
       </div>
     </Card>
   );

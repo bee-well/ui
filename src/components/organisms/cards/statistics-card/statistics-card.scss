@@ -1,5 +1,7 @@
 @import "../../../../sass/colors.scss";
 
+@import "../../../../sass/spaces.scss";
+
 .statistics-card {
     flex: 1;
     flex-basis: 35rem;
@@ -23,5 +25,11 @@
         display: inline-flex;
         align-items: center;
         justify-content: space-around;
+    }
+
+    &__tags {
+        > * {
+            margin: $space-small;
+        }
     }
 }
