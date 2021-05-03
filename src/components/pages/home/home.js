@@ -40,10 +40,7 @@ const Home = () => {
     useEffect(() => {
         setSampleData(generateSampleData())
         if (user) {
-            console.log("redirecting to panel", user)
             history.push("/panel")
-        } else {
-            console.log("user is not currently logged in", user)
         }
     }, [])
 
