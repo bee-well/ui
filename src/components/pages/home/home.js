@@ -47,12 +47,10 @@ const Home = () => {
     const onSignUp = async (firstName, lastName, email, password) => {
         const result = await signUp(firstName, lastName, email, password)
         if (result.success) {
-            alert("signed up!")
             setIsSignUpOpen(false)
             setTimeout(() => setIsSignInOpen(true), 500)
         } else {
-            // TODO: print error
-            console.log("ouch")
+            alert("I'm sorry, it seems as if we cannot process your request right now.")
         }
     }  
 
@@ -62,8 +60,7 @@ const Home = () => {
             setUser({token: result.payload.token})
             history.push("/panel")
         } else {
-            // TODO: print error
-            console.log(result.payload)
+            alert("Wrong username or password, please try again.")
         }
     }
 
