@@ -22,6 +22,7 @@ const Home = () => {
         const date = new Date()
         return {
             happiness: Math.floor(Math.random() * 90) + 10,
+            mostCommonTags: [],
             dataPoints: [
                 { mood: Math.floor(Math.random() * 5) + 1, date: date },
                 { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 1) },

@@ -8,6 +8,7 @@ import ReportsAmountCard from "../../../components/organisms/cards/reports-amoun
 import ReportMoodModal from "../../organisms/modals/report-mood-modal";
 import {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
+import {getUserData} from "../../../api/bee-well"
 import "./panel.scss";
 
 import {getStatistics, reportMood} from "../../../api/bee-well"
@@ -15,8 +16,9 @@ import {getStatistics, reportMood} from "../../../api/bee-well"
 const Panel = () => {
   const history = useHistory()
   const [reportMoodModalOpen, setReportMoodModalOpen] = useState(false)
-  const [todaysStatistics, setTodaysStatistics] = useState(null)
-
+  const [todaysStatistics, setTodaysStatistics] = useState({})
+  const [user, setUser] = useState({})
+  
   const fetchTodaysStatistics = async () => {
     const result = await getStatistics(new Date(), new Date())
     if (result.success) {
@@ -26,7 +28,19 @@ const Panel = () => {
     }
   }
 
-  useEffect(() => fetchTodaysStatistics(), [])
+  const fetchUserData = async () => {
+    const result = await getUserData()
+    if (result.success) {
+      setUser(result.payload)
+    } else if (result.code === 401) {
+      history.push("/")
+    }
+  }
+
+  useEffect(() => {
+    fetchTodaysStatistics()
+    fetchUserData()
+  }, [])
 
   const generateSampleData = () => {
     const date = new Date()
@@ -71,8 +85,8 @@ const Panel = () => {
       />
       <Container>
         <Row>
-          <ProfileCard email={'info@rasmusnilsson.se'} name = {'Erik Rasmus Nilsson'}/>
-          <WelcomeCard name="Rasmus" onReportMood={() => setReportMoodModalOpen(true)} />
+          <ProfileCard email={user.email} name ={`${user.firstName} ${user.lastName}`}/>
+          <WelcomeCard name={user.firstName} onReportMood={() => setReportMoodModalOpen(true)} />
         </Row>
         <Row>
           <ReportCard reports={todaysStatistics ? todaysStatistics.reportAmount : 0} recommendedReports={12}/>

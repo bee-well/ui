@@ -6,7 +6,7 @@ import SecondaryHeading from "../../../atoms/headings/secondary-heading"
 import Tag from "../../../atoms/tag"
 
 const StatisticsCard = ({ data, title }) => {
-    const statistics = data ? (
+    const statistics = data && data.happiness && data.dataPoints ? (
         <div className="statistics-card__data">
             <ProgressBar 
                 percentage={data.happiness}
@@ -18,7 +18,7 @@ const StatisticsCard = ({ data, title }) => {
         </div>
     ) : <p>Loading...</p>
 
-    const tags = data ? data.mostCommonTags.map(tag => tag !== "" ? <Tag text={tag} onClick={() => {}} /> : null) : null
+    const tags = data && data.mostCommonTags ? data.mostCommonTags.map(tag => tag !== "" ? <Tag text={tag} onClick={() => {}} /> : null) : null
 
     return (
         <Card className="statistics-card">
