@@ -4,7 +4,7 @@ import SecondaryHeading from "../../../atoms/headings/secondary-heading";
 import Button from "../../../atoms/buttons/button/button";
 import Icon from "../../../atoms/icon"
 
-const ProfileCard = ({ email, name }) => {
+const ProfileCard = ({ email, name, onSignOut }) => {
   return (
     <Card 
       className="profile-card"
@@ -23,7 +23,7 @@ const ProfileCard = ({ email, name }) => {
           <p>{name}</p>
         </div>
         <div className="profile-card__button">
-          <Button>Sign Out</Button>
+          <Button onClick={onSignOut}>Sign Out</Button>
         </div>
       </div>
     </Card>

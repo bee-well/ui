@@ -3,7 +3,8 @@ import "./home.scss"
 import {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
 
-import {authenticate, signUp} from "../../../api/bee-well"
+import {useUserContext} from "../../../context/user"
+import useApi from "../../../api/bee-well"
 
 import SignUpModal from "../../organisms/modals/sign-up-modal"
 import SignInModal from "../../organisms/modals/sign-in-modal"
@@ -17,6 +18,8 @@ const Home = () => {
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
     const [sampleData, setSampleData] = useState(false)
+    const [user, setUser] = useUserContext()
+    const { authenticate, signUp } = useApi()
 
     const generateSampleData = () => {
         const date = new Date()
@@ -36,6 +39,12 @@ const Home = () => {
 
     useEffect(() => {
         setSampleData(generateSampleData())
+        if (user) {
+            console.log("redirecting to panel", user)
+            history.push("/panel")
+        } else {
+            console.log("user is not currently logged in", user)
+        }
     }, [])
 
     const onSignUp = async (firstName, lastName, email, password) => {
@@ -53,6 +62,7 @@ const Home = () => {
     const onSignIn = async (email, password) => {
         const result = await authenticate(email, password)
         if (result.success) {
+            setUser({token: result.payload.token})
             history.push("/panel")
         } else {
             // TODO: print error
