@@ -4,6 +4,8 @@
 .reports-amount-card {
   background-color: white;
   flex: 1;
+  align-self: flex-start;
+
   &__heading {
     color: $color-text-dark;
     margin-left: 1rem;
@@ -12,8 +14,7 @@
     color: $color-primary;
     margin-top: $space-large;
     font-weight: bold;
-    align-items: center;
-    margin-left: $space-xxx-large;
-    font-size: $space-large;
+    font-size: 4rem;
+    text-align: center;
   }
 }

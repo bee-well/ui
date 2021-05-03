@@ -1,6 +1,7 @@
 import "./home.scss"
 
 import {useState, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 
 import {authenticate, signUp} from "../../../api/bee-well"
 
@@ -12,6 +13,7 @@ import Button from "../../atoms/buttons/button"
 import OverviewCard from "../../organisms/cards/statistics-card"
 
 const Home = () => {
+    const history = useHistory()
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
     const [sampleData, setSampleData] = useState(false)
@@ -50,8 +52,7 @@ const Home = () => {
     const onSignIn = async (email, password) => {
         const result = await authenticate(email, password)
         if (result.success) {
-            // TODO: router redirect
-            setIsSignInOpen(false)
+            history.push("/panel")
         } else {
             // TODO: print error
             console.log(result.payload)
@@ -80,8 +81,8 @@ const Home = () => {
                         <p className="home__title--accounts">We are currently helping <b>1244</b> people</p>
                         <h1 className="home__title--title">bee happy, <span className="home__title--underlined">bee-well</span></h1>
                         <div className="home__title--buttons">
-                            <Button big>Learn more</Button>
-                            <CtaButton big onClick={() => setIsSignUpOpen(true)}>Start now</CtaButton>
+                            <Button>Learn more</Button>
+                            <CtaButton onClick={() => setIsSignUpOpen(true)}>Start now</CtaButton>
                         </div>
                     </div>
                 </div>
@@ -93,9 +94,7 @@ const Home = () => {
                     <div className="home__splash--content">
                         <h2 className="home__splash--content--title">The Bee-Well Saga</h2>
                         <p className="home__splash--content--text">
-                            Bee-Well was created by four computer science students at Kristianstad University for the course
-                            "Development for the Cloud". The task was to develop an application that includes a back-end 
-                            running on the cloud as well as some kind of front-end. We decided to get creative with the back-end.
+                            This is a project for "Software Development for the Cloud". We decided to get creative with the back-end.
                             Bee-Well is built with a kind of microservice approach with four individually deployable services that
                             communicate through a instance of RabbitMQ. All of this is running on the Heroku Cloud and has been 
                             set up with both CI and CD functionality using GitHub Actions. 
@@ -103,7 +102,7 @@ const Home = () => {
                         <div className="home__splash--content--data">
                             <OverviewCard data={sampleData} />
                             <a href="https://github.com/bee-well" target="_blank" rel="noreferrer" className="home__splash--content--github">
-                                <h3>View more on GitHub</h3>
+                                <h3>GitHub</h3>
                             </a>
                         </div>
                     </div>

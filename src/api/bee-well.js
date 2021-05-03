@@ -1,13 +1,13 @@
 import axios from "axios"
 
-const inProduction = process.env.NODE_ENV === "prod"
+const inProduction = true
 
 const authApi = axios.create({
     baseURL: inProduction ? "https://bw-auth.herokuapp.com" : "http://localhost:8080"
 })
 
 const moodApi = axios.create({
-    baseURL: inProduction ? "https://bw-mood.herokuapp.com" : "http://localhost:3000"
+    baseURL: inProduction ? "https://bw-moods.herokuapp.com" : "http://localhost:3000"
 })
 
 const statisticsApi = axios.create({
@@ -80,9 +80,10 @@ const getStatistics = async (from, to) => {
             success: true,
             payload: response.data
         }
-    } catch {
+    } catch (err) {
         return {
-            success: false
+            success: false,
+            code: err.response.status
         }
     }
 }
