@@ -29,7 +29,7 @@ Detta projekt är frontend-delen av Bee Well. Denna React applikation kommer att
   * WelcomeCard ✅
   * OverviewCard ✅
   * ReportCard ✅
-  * FilterCard (Soon) Tobzki on it
+  * FilterCard ✅
   * DayCard ✅
   * HourCard ✅
   * ReportAmountCard ✅

@@ -1,13 +1,18 @@
-@import "../../../../sass/spaces.scss";
-@import "../../../../sass/colors.scss";
+@import "../../../sass/spaces.scss";
+@import "../../../sass/colors.scss";
 
-.container {
-    padding: $space-medium $space-x-large;
-    border-radius: $space-medium;
-    border: none;
-    outline: none;
-    background: $color-primary;
-    color: $color-light;
-    font-weight: bold;
-    outline: none;
+.date-picker {
+  padding: $space-large $space-x-large;
+  border-radius: $space-medium;
+  background-color: $color-light;
+  color: $color-dark;
+  margin-right: $space-x-large;
+
+  border: none;
+  outline: 0;
+
+  ::placeholder {
+    color: $color-dark;
+    font-size: $space-x-large;
+  }
 }

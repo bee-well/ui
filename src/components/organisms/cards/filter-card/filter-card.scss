@@ -1,0 +1,19 @@
+@import "../../../../sass/colors.scss";
+@import "../../../../sass//spaces.scss";
+
+.filter-card {
+  &__heading {
+    color: $color-dark;
+    font-size: $space-x-large;
+    font-weight: normal;
+  }
+
+  &__data {
+    margin-top: $space-large;
+    margin-bottom: $space-large;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

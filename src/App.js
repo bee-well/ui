@@ -1,6 +1,5 @@
 import {Switch, Route} from "react-router-dom"
 import {UserProvider} from "./context/user"
-
 import Home from "./components/pages/home"
 import Panel from "./components/pages/panel"
 
