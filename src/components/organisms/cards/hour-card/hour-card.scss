@@ -2,15 +2,19 @@
 @import "../../../../sass/spaces.scss";
 
 .hour-card {
+  flex: 1;
+  background-color: white;
+
   &__heading {
     color: $color-text-dark;
     font-size: $space-xx-large;
   }
 
   &__data {
-    font-weight: bold;
-    font-size: $space-xx-large;
     color: $color-primary;
-    margin-top: $space-medium;
+    margin-top: $space-large;
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
   }
 }

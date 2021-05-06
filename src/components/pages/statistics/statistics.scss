@@ -1,0 +1,14 @@
+@import '../../../sass/colors.scss';
+@import '../../../sass/spaces.scss';
+
+.statistics {
+
+    display: flex;
+    justify-content: center;
+    padding-top: $space-xxx-large;
+
+    .placeholder-card {
+        flex: 1;
+    }
+}
+
