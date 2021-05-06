@@ -1,0 +1,17 @@
+@import "../../../../sass/colors.scss";
+@import "../../../../sass/spaces.scss";
+
+.home-card {
+    background-color: white;
+    display: flex !important;
+    flex-direction: column;
+
+    &__icon {
+        width: 7rem;
+        height: 7rem;
+        fill: $color-primary;
+        align-self: center;
+        margin-top: $space-xx-large;
+        margin-bottom: $space-x-large;
+    }
+}

@@ -5,7 +5,6 @@ import Icon from "../../../atoms/icon"
 import SecondaryHeading from "../../../atoms/headings/secondary-heading"
 
 const AverageMoodCard = ({averageMood}) => {
-    
     const moodToIcon = (mood) => {
         switch (mood) {
             case 1:
