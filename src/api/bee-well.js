@@ -1,4 +1,6 @@
 import axios from "axios"
+import { useEffect } from "react"
+import {useUserContext} from "../context/user"
 
 const inProduction = true
 
@@ -14,102 +16,113 @@ const statisticsApi = axios.create({
     baseURL: inProduction ? "https://bw-statistics.herokuapp.com" : "http://localhost:8081"
 })
 
-const setToken = token => {
-    authApi.defaults.headers.common["Authorization"] = token
-    moodApi.defaults.headers.common["Authorization"] = token
-    statisticsApi.defaults.headers.common["Authorization"] = token
-}
+const useApi = () => {
+    const [user] = useUserContext()
 
-const authenticate = async (email, password) => {
-    try {
-        const response = await authApi.post("/sign-in", { email, password })
-        const token = response.data
-        setToken(token)
-        return {
-            success: true
+    useEffect(() => {
+        if (user) {
+            const {token} = user
+            authApi.defaults.headers.common["Authorization"] = token
+            moodApi.defaults.headers.common["Authorization"] = token
+            statisticsApi.defaults.headers.common["Authorization"] = token
         }
-    } catch (err) {
-        return {
-            success: false,
-            payload: {
-                message: err.response.data
+    }, [user])
+    
+    const authenticate = async (email, password) => {
+        try {
+            const response = await authApi.post("/sign-in", { email, password })
+            const token = response.data
+            return {
+                success: true,
+                payload: {
+                    token
+                }
+            }
+        } catch (err) {
+            return {
+                success: false,
+                payload: {
+                    message: err.response.data
+                }
             }
         }
     }
-}
-
-const getUserData = async () => {
-    try {
-        const response = await authApi.get("/me")
-        return {
-            success: true,
-            payload: response.data
-        }
-    } catch (err) {
-        return {
-            success: false,
-            code: err.response.status,
-            payload: {
-                message: err.response.data
+    
+    const getUserData = async () => {
+        try {
+            const response = await authApi.get("/me")
+            return {
+                success: true,
+                payload: response.data
+            }
+        } catch (err) {
+            return {
+                success: false,
+                code: err.response.status,
+                payload: {
+                    message: err.response.data
+                }
             }
         }
     }
-}
-
-const signUp = async (firstName, lastName, email, password) => {
-    try {
-        const response = await authApi.post("/sign-up", { email, password, firstName, lastName })
-        return {
-            success: response.status === 200
-        }
-    } catch (err) {
-        return {
-            success: false,
-            payload: {
-                message: err.response.data
+    
+    const signUp = async (firstName, lastName, email, password) => {
+        try {
+            const response = await authApi.post("/sign-up", { email, password, firstName, lastName })
+            return {
+                success: response.status === 200
+            }
+        } catch (err) {
+            return {
+                success: false,
+                payload: {
+                    message: err.response.data
+                }
             }
         }
     }
-}
-
-// TODO: add offline functionality
-const reportMood = async (mood, tags) => {
-    let response
-    try {
-        response = await moodApi.post("/moods", { mood, tags })
-        return {
-            success: true
-        }
-    } catch {
-        return {
-            success: false,
-            payload: {
-                message: response.data
+    
+    // TODO: add offline functionality
+    const reportMood = async (mood, tags) => {
+        let response
+        try {
+            response = await moodApi.post("/moods", { mood, tags })
+            return {
+                success: true
+            }
+        } catch {
+            return {
+                success: false,
+                payload: {
+                    message: response.data
+                }
             }
         }
     }
-}
-
-const getStatistics = async (from, to) => {
-    let response 
-    try {
-        response = await statisticsApi.get(`/statistics?from=${from}&to=${to}`)
-        return {
-            success: true,
-            payload: response.data
+    
+    const getStatistics = async (from, to) => {
+        let response 
+        try {
+            response = await statisticsApi.get(`/statistics?from=${from}&to=${to}`)
+            return {
+                success: true,
+                payload: response.data
+            }
+        } catch (err) {
+            return {
+                success: false,
+                code: err.response.status
+            }
         }
-    } catch (err) {
-        return {
-            success: false,
-            code: err.response.status
-        }
+    }
+    
+    return {
+        authenticate,
+        getUserData,
+        getStatistics,
+        reportMood,
+        signUp,
     }
 }
 
-export {
-    authenticate, 
-    reportMood,
-    getStatistics, 
-    signUp,
-    getUserData
-}
+export default useApi
