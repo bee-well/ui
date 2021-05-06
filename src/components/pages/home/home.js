@@ -3,7 +3,8 @@ import "./home.scss"
 import {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
 
-import {authenticate, signUp} from "../../../api/bee-well"
+import {useUserContext} from "../../../context/user"
+import useApi from "../../../api/bee-well"
 
 import SignUpModal from "../../organisms/modals/sign-up-modal"
 import SignInModal from "../../organisms/modals/sign-in-modal"
@@ -17,6 +18,8 @@ const Home = () => {
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
     const [sampleData, setSampleData] = useState(false)
+    const [user, setUser] = useUserContext()
+    const { authenticate, signUp } = useApi()
 
     const generateSampleData = () => {
         const date = new Date()
@@ -36,27 +39,28 @@ const Home = () => {
 
     useEffect(() => {
         setSampleData(generateSampleData())
+        if (user) {
+            history.push("/panel")
+        }
     }, [])
 
     const onSignUp = async (firstName, lastName, email, password) => {
         const result = await signUp(firstName, lastName, email, password)
         if (result.success) {
-            alert("signed up!")
             setIsSignUpOpen(false)
             setTimeout(() => setIsSignInOpen(true), 500)
         } else {
-            // TODO: print error
-            console.log("ouch")
+            alert("I'm sorry, it seems as if we cannot process your request right now.")
         }
     }  
 
     const onSignIn = async (email, password) => {
         const result = await authenticate(email, password)
         if (result.success) {
+            setUser({token: result.payload.token})
             history.push("/panel")
         } else {
-            // TODO: print error
-            console.log(result.payload)
+            alert("Wrong username or password, please try again.")
         }
     }
 

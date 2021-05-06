@@ -4,21 +4,22 @@ import ProfileCard from "../../organisms/cards/profile-card/profile-card";
 import WelcomeCard from "../../organisms/cards/welcome-card/welcome-card";
 import ReportCard from "../../../components/organisms/cards/reports-card/reports-card";
 import StatisticCard from "../../organisms/cards/statistics-card/statistics-card";
-import ReportsAmountCard from "../../../components/organisms/cards/reports-amount-card/reports-amount-card"
+import AverageMoodCard from "../../organisms/cards/average-mood-card"
 import ReportMoodModal from "../../organisms/modals/report-mood-modal";
 import {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
-import {getUserData} from "../../../api/bee-well"
 import "./panel.scss";
-
-import {getStatistics, reportMood} from "../../../api/bee-well"
+import useApi from "../../../api/bee-well"
+import {useUserContext} from "../../../context/user"
 
 const Panel = () => {
   const history = useHistory()
   const [reportMoodModalOpen, setReportMoodModalOpen] = useState(false)
   const [todaysStatistics, setTodaysStatistics] = useState({})
-  const [user, setUser] = useState({})
-  
+  const [userData, setUserData] = useState({})
+  const { getStatistics, getUserData, reportMood } = useApi()
+  const [user, setUser] = useUserContext()
+
   const fetchTodaysStatistics = async () => {
     const result = await getStatistics(new Date(), new Date())
     if (result.success) {
@@ -31,13 +32,17 @@ const Panel = () => {
   const fetchUserData = async () => {
     const result = await getUserData()
     if (result.success) {
-      setUser(result.payload)
+      setUserData(result.payload)
     } else if (result.code === 401) {
       history.push("/")
     }
   }
 
   useEffect(() => {
+    if (!user) {
+      history.push("/")
+      return
+    }
     fetchTodaysStatistics()
     fetchUserData()
   }, [])
@@ -64,6 +69,11 @@ const Panel = () => {
     history.push("/statistics")
   }
 
+  const onSignOut = () => {
+    setUser(null)
+    history.push("/")
+  }
+
   return (
     <div className="panel">
       <ReportMoodModal
@@ -74,15 +84,15 @@ const Panel = () => {
       />
       <Container>
         <Row>
-          <ProfileCard email={user.email} name ={`${user.firstName} ${user.lastName}`}/>
-          <WelcomeCard name={user.firstName} onReportMood={() => setReportMoodModalOpen(true)} onViewStatistics={onViewStatistics} />
+          <ProfileCard email={userData.email} name ={`${userData.firstName} ${userData.lastName}`} onSignOut={onSignOut}/>
+          <WelcomeCard name={userData.firstName} happiness={todaysStatistics ? todaysStatistics.happiness : null} onReportMood={() => setReportMoodModalOpen(true)} onViewStatistics={onViewStatistics}/>
         </Row>
         <Row>
           <ReportCard reports={todaysStatistics ? todaysStatistics.reportAmount : 0} recommendedReports={12}/>
         </Row>
         <Row>
           <StatisticCard title="Today" data={todaysStatistics}/> 
-          <ReportsAmountCard counter={todaysStatistics ? todaysStatistics.reportAmount : 0}/>
+          <AverageMoodCard averageMood={todaysStatistics ? todaysStatistics.averageMood : 0}/>
         </Row>
       </Container>
     </div>

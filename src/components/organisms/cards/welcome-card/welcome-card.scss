@@ -1,16 +1,22 @@
 @import "../../../../sass/spaces.scss";
+@import "../../../../sass/colors.scss";
 
 .welcome-card {
   flex: 1;
 
   display: inline-flex !important;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
   flex-direction: column;
   background-color: white;
 
   * > {
     flex: 1;
+  }
+
+  &__saying {
+    margin-top: $space-medium;
+    color: $color-text-dark;
   }
 
   &__data {
@@ -23,6 +29,7 @@
   }
 
   &__buttons {
+    margin-top: $space-xx-large;
     *:not(:last-child) {
       margin-right: $space-xx-large;
     }
