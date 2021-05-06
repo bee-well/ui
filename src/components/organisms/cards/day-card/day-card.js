@@ -4,14 +4,12 @@ import SecondaryHeading from "../../../atoms/headings/secondary-heading/secondar
 
 const DayCard = ({ weekday }) => {
   return (
-    <div className="day-card__heading">
-      <Card>
+      <Card className="day-card">
         <SecondaryHeading>Day</SecondaryHeading>
         <div className="day-card__data">
-          <p>Monday</p>
+          <p>{weekday}</p>
         </div>
       </Card>
-    </div>
   );
 };
 

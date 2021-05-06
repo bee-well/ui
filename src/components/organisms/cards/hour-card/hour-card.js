@@ -4,14 +4,12 @@ import SecondaryHeading from '../../../atoms/headings/secondary-heading/secondar
 
 const HourCard = ({hours}) => {
   return (
-    <div className="hour-card__heading">
-      <Card>
-        <SecondaryHeading>Hour</SecondaryHeading>
-        <div className="hour-card__data">
-          <p>{hours}</p>
-        </div>
-      </Card>
-    </div>
+    <Card className="hour-card">
+      <SecondaryHeading>Hour</SecondaryHeading>
+      <div className="hour-card__data">
+        <p>{hours}</p>
+      </div>
+    </Card>
   );
 };
 

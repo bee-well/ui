@@ -42,21 +42,6 @@ const Panel = () => {
     fetchUserData()
   }, [])
 
-  const generateSampleData = () => {
-    const date = new Date()
-    return {
-        happiness: Math.floor(Math.random() * 90) + 10,
-        dataPoints: [
-            { mood: Math.floor(Math.random() * 5) + 1, date: date },
-            { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 1) },
-            { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 2) },
-            { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 3) },
-            { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 4) },
-            { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 5) },
-        ]
-    }
-  }
-
   const generateTagOptions = () => {
     const tagOptions = new Map();
     tagOptions.set(1, ["sad", "worried", "depressed", "anxious", "stressed", "sensitive"])
@@ -75,6 +60,10 @@ const Panel = () => {
     }
   }
 
+  const onViewStatistics = () => {
+    history.push("/statistics")
+  }
+
   return (
     <div className="panel">
       <ReportMoodModal
@@ -86,7 +75,7 @@ const Panel = () => {
       <Container>
         <Row>
           <ProfileCard email={user.email} name ={`${user.firstName} ${user.lastName}`}/>
-          <WelcomeCard name={user.firstName} onReportMood={() => setReportMoodModalOpen(true)} />
+          <WelcomeCard name={user.firstName} onReportMood={() => setReportMoodModalOpen(true)} onViewStatistics={onViewStatistics} />
         </Row>
         <Row>
           <ReportCard reports={todaysStatistics ? todaysStatistics.reportAmount : 0} recommendedReports={12}/>

@@ -29,27 +29,22 @@ const FilterCard = ({ onFilter }) => {
   };
 
   return (
-    <Card>
-      <div className="filter-card">
-        <div className="filter-card__heading">
-          <SecondaryHeading>Filter</SecondaryHeading>
-          <div className="filter-card__data">
-            <DatePicker
-              placeHolder={"From"}
-              selectedDate={startDate}
-              setSelectedDate={setStartDate}
-            ></DatePicker>
-            <DatePicker
-              placeHolder={"To"}
-              selectedDate={endDate}
-              setSelectedDate={setEndDate}
-            ></DatePicker>
-
-            <CTAButton onClick={() => onSubmit(startDate, endDate)}>
-              Compile Statistics
-            </CTAButton>
-          </div>
-        </div>
+    <Card className="filter-card">
+      <SecondaryHeading>Filter</SecondaryHeading>
+      <div className="filter-card__data">
+        <DatePicker
+          placeHolder={"From"}
+          selectedDate={startDate}
+          setSelectedDate={setStartDate}
+        ></DatePicker>
+        <DatePicker
+          placeHolder={"To"}
+          selectedDate={endDate}
+          setSelectedDate={setEndDate}
+        ></DatePicker>
+        <CTAButton onClick={() => onSubmit(startDate, endDate)}>
+          Compile Statistics
+        </CTAButton>
       </div>
     </Card>
   );
