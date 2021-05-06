@@ -1,0 +1,7 @@
+@import "../../../sass/spaces.scss";
+
+.panel {
+    display: flex;
+    justify-content: center;
+    padding-top: $space-xxx-large;
+}

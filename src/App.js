@@ -1,9 +1,15 @@
-import FilterCard from "../src/components/organisms/cards/filter-card/filter-card";
+import {Switch, Route} from "react-router-dom"
+import Home from "./components/pages/home"
+import Panel from "./components/pages/panel"
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <FilterCard></FilterCard>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/panel" component={Panel} />
+      </Switch>
+
     </div>
   );
 }
