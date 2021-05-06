@@ -4,7 +4,7 @@ import ProfileCard from "../../organisms/cards/profile-card/profile-card";
 import WelcomeCard from "../../organisms/cards/welcome-card/welcome-card";
 import ReportCard from "../../../components/organisms/cards/reports-card/reports-card";
 import StatisticCard from "../../organisms/cards/statistics-card/statistics-card";
-import ReportsAmountCard from "../../../components/organisms/cards/reports-amount-card/reports-amount-card"
+import AverageMoodCard from "../../organisms/cards/average-mood-card"
 import ReportMoodModal from "../../organisms/modals/report-mood-modal";
 import {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
@@ -93,7 +93,7 @@ const Panel = () => {
         </Row>
         <Row>
           <StatisticCard title="Today" data={todaysStatistics}/> 
-          <ReportsAmountCard counter={todaysStatistics ? todaysStatistics.reportAmount : 0}/>
+          <AverageMoodCard averageMood={todaysStatistics ? todaysStatistics.averageMood : 0}/>
         </Row>
       </Container>
     </div>
