@@ -81,7 +81,7 @@ const Panel = () => {
       <Container>
         <Row>
           <ProfileCard email={userData.email} name ={`${userData.firstName} ${userData.lastName}`} onSignOut={onSignOut}/>
-          <WelcomeCard name={userData.firstName} onReportMood={() => setReportMoodModalOpen(true)} />
+          <WelcomeCard name={userData.firstName} happiness={todaysStatistics ? todaysStatistics.happiness : null} onReportMood={() => setReportMoodModalOpen(true)} />
         </Row>
         <Row>
           <ReportCard reports={todaysStatistics ? todaysStatistics.reportAmount : 0} recommendedReports={12}/>
