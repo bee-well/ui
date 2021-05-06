@@ -11,34 +11,16 @@ import SignInModal from "../../organisms/modals/sign-in-modal"
 import DiscreteButton from "../../atoms/buttons/discrete-button"
 import CtaButton from "../../atoms/buttons/cta-button"
 import Button from "../../atoms/buttons/button"
-import OverviewCard from "../../organisms/cards/statistics-card"
+import HomeCard from "../../organisms/cards/home-card"
 
 const Home = () => {
     const history = useHistory()
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
-    const [sampleData, setSampleData] = useState(false)
     const [user, setUser] = useUserContext()
     const { authenticate, signUp } = useApi()
 
-    const generateSampleData = () => {
-        const date = new Date()
-        return {
-            happiness: Math.floor(Math.random() * 90) + 10,
-            mostCommonTags: [],
-            dataPoints: [
-                { mood: Math.floor(Math.random() * 5) + 1, date: date },
-                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 1) },
-                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 2) },
-                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 3) },
-                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 4) },
-                { mood: Math.floor(Math.random() * 5) + 1, date: new Date(date).setDate(date.getDate() + 5) },
-            ]
-        }
-    }
-
     useEffect(() => {
-        setSampleData(generateSampleData())
         if (user) {
             history.push("/panel")
         }
@@ -105,7 +87,7 @@ const Home = () => {
                             set up with both CI and CD functionality using GitHub Actions. 
                         </p>
                         <div className="home__splash--content--data">
-                            <OverviewCard data={sampleData} />
+                            <HomeCard />
                             <a href="https://github.com/bee-well" target="_blank" rel="noreferrer" className="home__splash--content--github">
                                 <h3>GitHub</h3>
                             </a>
