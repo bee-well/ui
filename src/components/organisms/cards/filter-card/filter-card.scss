@@ -2,6 +2,14 @@
 @import "../../../../sass//spaces.scss";
 
 .filter-card {
+  flex: 1;
+
+  display: inline-flex !important;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  background-color: white;
+
   &__heading {
     color: $color-dark;
     font-size: $space-x-large;
@@ -10,10 +18,9 @@
 
   &__data {
     margin-top: $space-large;
-    margin-bottom: $space-large;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }

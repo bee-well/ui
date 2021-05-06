@@ -65,6 +65,10 @@ const Panel = () => {
     }
   }
 
+  const onViewStatistics = () => {
+    history.push("/statistics")
+  }
+
   const onSignOut = () => {
     setUser(null)
     history.push("/")
@@ -81,7 +85,7 @@ const Panel = () => {
       <Container>
         <Row>
           <ProfileCard email={userData.email} name ={`${userData.firstName} ${userData.lastName}`} onSignOut={onSignOut}/>
-          <WelcomeCard name={userData.firstName} happiness={todaysStatistics ? todaysStatistics.happiness : null} onReportMood={() => setReportMoodModalOpen(true)} />
+          <WelcomeCard name={userData.firstName} happiness={todaysStatistics ? todaysStatistics.happiness : null} onReportMood={() => setReportMoodModalOpen(true)} onViewStatistics={onViewStatistics}/>
         </Row>
         <Row>
           <ReportCard reports={todaysStatistics ? todaysStatistics.reportAmount : 0} recommendedReports={12}/>

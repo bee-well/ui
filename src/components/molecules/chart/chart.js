@@ -15,6 +15,7 @@ const Chart = ({ data }) => {
 
             options={{
                 chart: {
+                    width: "100%",
                     type: 'line',
                     toolbar: {
                         show: true,

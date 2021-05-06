@@ -2,15 +2,14 @@
 @import "../../../../sass/spaces.scss";
 
 .day-card {
-  &__heading {
-    color: $color-text-dark;
-    font-size: $space-xx-large;
-  }
+  flex: 1;
+  background-color: white;
 
   &__data {
-    font-weight: bold;
-    font-size: $space-xx-large;
     color: $color-primary;
-    margin-top: $space-medium;
+    margin-top: $space-large;
+    font-weight: bold;
+    font-size: 2.8rem;
+    text-align: center;
   }
 }
