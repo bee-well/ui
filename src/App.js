@@ -1,5 +1,4 @@
 import {Switch, Route} from "react-router-dom"
-
 import Home from "./components/pages/home"
 import Panel from "./components/pages/panel"
 
@@ -10,6 +9,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/panel" component={Panel} />
       </Switch>
+
     </div>
   );
 }
