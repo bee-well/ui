@@ -13,5 +13,4 @@ const ReportCard = ({ reports, recommendedReports }) => {
     </Card>
   );
 };
-
 export default ReportCard;
