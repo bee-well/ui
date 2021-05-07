@@ -16,7 +16,7 @@ const StatisticsCard = ({ data, title }) => {
                 data={data.dataPoints}
             />
         </div>
-    ) : <p>Loading...</p>
+    ) : null
 
     const tags = data && data.mostCommonTags ? data.mostCommonTags.map(tag => tag !== "" ? <Tag text={tag} onClick={() => {}} /> : null) : null
 

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect } from "react"
 import {useUserContext} from "../context/user"
+import poller from "./offline-poller"
 
 const inProduction = true
 
@@ -18,6 +19,7 @@ const statisticsApi = axios.create({
 
 const useApi = () => {
     const [user] = useUserContext()
+    const [addToQueue, start] = poller()
 
     useEffect(() => {
         if (user) {
@@ -81,8 +83,7 @@ const useApi = () => {
             }
         }
     }
-    
-    // TODO: add offline functionality
+
     const reportMood = async (mood, tags) => {
         let response
         try {
@@ -90,7 +91,22 @@ const useApi = () => {
             return {
                 success: true
             }
-        } catch {
+        } catch (err) {
+            if (!err.response) {
+                addToQueue({
+                    api: moodApi,
+                    uri: "/moods",
+                    method: "POST",
+                    body: { mood, tags }
+                })
+                start()
+                return {
+                    success: false,
+                    payload: {
+                        message: "No internet connection"
+                    }
+                }
+            }
             return {
                 success: false,
                 payload: {
