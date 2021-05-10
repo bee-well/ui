@@ -67,6 +67,24 @@ const useApi = () => {
             }
         }
     }
+
+    const getUserCount = async () => {
+        try {
+            const response = await authApi.get("/users")
+            return {
+                success: true,
+                payload: response.data
+            }
+        } catch (err) {
+            return {
+                success: false,
+                code: err.response.status,
+                payload: {
+                    message: err.response.data
+                }
+            }
+        }
+    }
     
     const signUp = async (firstName, lastName, email, password) => {
         try {
@@ -135,6 +153,7 @@ const useApi = () => {
     return {
         authenticate,
         getUserData,
+        getUserCount,
         getStatistics,
         reportMood,
         signUp,
