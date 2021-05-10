@@ -18,19 +18,29 @@ const Home = () => {
     const [isSignUpOpen, setIsSignUpOpen] = useState(false)
     const [isSignInOpen, setIsSignInOpen] = useState(false)
     const [user, setUser] = useUserContext()
-    const { authenticate, signUp } = useApi()
+    const [userCount, setUserCount] = useState(0)
+    const { authenticate, signUp, getUserCount } = useApi()
 
     useEffect(() => {
         if (user) {
             history.push("/panel")
         }
+        updateUserCount()
     }, [])
+
+    const updateUserCount = async () => {
+        const response = await getUserCount()
+        if (response.success) {
+            setUserCount(response.payload.count)
+        }
+    }
 
     const onSignUp = async (firstName, lastName, email, password) => {
         const result = await signUp(firstName, lastName, email, password)
         if (result.success) {
             setIsSignUpOpen(false)
             setTimeout(() => setIsSignInOpen(true), 500)
+            updateUserCount()
         } else {
             alert("I'm sorry, it seems as if we cannot process your request right now.")
         }
@@ -65,7 +75,7 @@ const Home = () => {
                         <DiscreteButton big onClick={() => setIsSignUpOpen(true)}>Sign up</DiscreteButton>
                     </nav>
                     <div className="home__title">
-                        <p className="home__title--accounts">We are currently helping <b>1244</b> people</p>
+                        <p className="home__title--accounts">We are currently helping <b>{userCount}</b> people</p>
                         <h1 className="home__title--title">bee happy, <span className="home__title--underlined">bee-well</span></h1>
                         <div className="home__title--buttons">
                             <Button>Learn more</Button>
