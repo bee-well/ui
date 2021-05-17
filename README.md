@@ -53,7 +53,7 @@ In a typical React application, as also for Bee-Well data is passed from parent 
 
 ## Hooks
 
-Hooks are quite similar to JavaScript functions, the rules of Hooks is that all state logic in a component is visible in the source code. You can only call for Hooks at the top level and it can only call them using funtions in Reat. There are some pre-requirities to use React Hooks such as Node, NPM & the create react app. For example we have used the 'React.useState' that enables to add state to function components. When we call this inside a function as described above it generates a single piece of state associated with that component. 
+Hooks are quite similar to JavaScript functions, the rules of Hooks is that all state logic in a component is visible in the source code. You can only call for Hooks at the top level and it can only call them using functions in React. There are some pre-requirities to use React Hooks such as Node, NPM & the create react app. For example we have used the 'React.useState' that enables to add state to function components. When we call this inside a function as described above it generates a single piece of state associated with that component. 
 
 ## Sass
 
