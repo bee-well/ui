@@ -49,12 +49,12 @@ Strukturen för våra API requests där vi använder oss utav Axios.
 
 ## Context
 
-Allows to share information to any component. 
+In a typical React application, as also for Bee-Well data is passed from parent to child using properties. Context allows a way to share data between different components without the need to explicitly pass a property value through every level of the system.
 
 ## Hooks
 
-Submits a hook that allows us to have state variables in functional components.
+Hooks are quite similar to JavaScript functions, the rules of Hooks is that all state logic in a component is visible in the source code. You can only call for Hooks at the top level and it can only call them using funtions in Reat. There are some pre-requirities to use React Hooks such as Node, NPM & the create react app. For example we have used the 'React.useState' that enables to add state to function components. When we call this inside a function as described above it generates a single piece of state associated with that component. 
 
 ## Sass
 
-Here we store our styling files to get continuous styling along the project. 
+Sass stands for Syntactically awesome style sheets and is an extension of CSS that enables the Bee Well team to use variables, rules, inline import to name some examples. It is compatible with all versions of CSS. There is one requirement and that is that you need to have Ruby installed. It allowed us to write clean, easy and less CSS. This resulted in writing our CSS quicker.
